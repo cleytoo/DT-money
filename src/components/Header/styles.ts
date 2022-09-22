@@ -25,9 +25,9 @@ export const NewTransactionButton = styled.button`
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
 
   &:hover {
+    transition: background-color 0.2s;
     background-color: ${(props) => props.theme['green-700']};
   }
 `
