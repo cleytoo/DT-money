@@ -23,6 +23,38 @@
       "category": "Educação",
       "price": 1980,
       "createdAt": "2022-09-26T04:42:54.625Z"
+    },
+    {
+      "description": "Desenvolvimento de app",
+      "price": 10000,
+      "type": "income",
+      "category": "Venda",
+      "createdAt": "2022-09-28T22:22:05.095Z",
+      "id": 4
+    },
+    {
+      "description": "Lanche",
+      "price": 50,
+      "type": "income",
+      "category": "Comida",
+      "createdAt": "2022-09-28T22:33:29.725Z",
+      "id": 5
+    },
+    {
+      "description": "Pagamento site",
+      "price": 2000,
+      "type": "income",
+      "category": "Trabalho",
+      "createdAt": "2022-09-28T22:43:14.278Z",
+      "id": 6
+    },
+    {
+      "description": "Pagamento",
+      "price": 4000,
+      "type": "income",
+      "category": "Pagamento",
+      "createdAt": "2022-09-28T23:23:52.330Z",
+      "id": 7
     }
   ]
 }

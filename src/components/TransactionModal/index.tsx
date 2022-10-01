@@ -5,6 +5,8 @@ import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import * as S from './styles'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { useContextSelector } from 'use-context-selector'
 
 const transactionFormSchema = z.object({
   description: z.string(),
@@ -16,11 +18,19 @@ const transactionFormSchema = z.object({
 type TransactionFormInputs = z.infer<typeof transactionFormSchema>
 
 export const TransactionModal = () => {
+  const { createTransaction, closeTransacionModal } = useContextSelector(
+    TransactionsContext,
+    ({ createTransaction, closeTransacionModal }) => ({
+      createTransaction,
+      closeTransacionModal,
+    })
+  )
   const {
     control,
     register,
     handleSubmit,
     formState: { isSubmitting },
+    reset,
   } = useForm<TransactionFormInputs>({
     resolver: zodResolver(transactionFormSchema),
     defaultValues: {
@@ -29,8 +39,15 @@ export const TransactionModal = () => {
   })
 
   const handleCreateNewTransaction = async (data: TransactionFormInputs) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log(data)
+    const { description, price, category, type } = data
+    createTransaction({
+      description,
+      price,
+      category,
+      type,
+    })
+    reset()
+    closeTransacionModal(false)
   }
 
   return (
